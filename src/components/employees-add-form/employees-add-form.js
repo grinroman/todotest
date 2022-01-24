@@ -19,6 +19,11 @@ class EmployeesAddForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
+    const { name, salary } = this.state;
+    if (name.length < 3 && salary < 100) {
+      alert('Please enter correct values!');
+      return;
+    }
     this.props.onAdd(this.state.name, this.state.salary);
     this.setState({
       name: '',
